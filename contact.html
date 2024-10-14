@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000, #ffcc00); /* Black to Yellow gradient */
+            color: white;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: linear-gradient(to right, #000, #ffcc00);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: black;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Toggle Button (Hamburger icon) */
+        .toggle-btn {
+            display: none;
+            background-color: #000;
+            border: none;
+            color: #ffcc00;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                display: none;
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+            nav.active a {
+                display: block;
+                padding: 10px;
+                margin: 5px 0;
+                background-color: #000;
+            }
+        }
+
+        /* Main Content Styling */
+        .content {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        /* Contact Form Styling */
+        .contact-form {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+
+        .contact-form h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ffcc00;
+            border-radius: 10px;
+            outline: none;
+            font-size: 1em;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: black;
+        }
+
+        .contact-form button {
+            padding: 10px 30px;
+            background-color: #ffcc00;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-form button:hover {
+            background-color: black;
+            color: #ffcc00;
+        }
+
+        /* Table Styling */
+        .contact-table {
+            width: 80%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .contact-table th, .contact-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ffcc00;
+        }
+
+        .contact-table th {
+            background-color: #ffcc00;
+            color: black;
+            font-size: 1.2em;
+        }
+
+        .contact-table td {
+            background-color: #f7f7f7;
+        }
+
+        /* Ensure same hover behavior for all batches */
+        .contact-table tr:hover td:not(:first-child) {
+            background-color: #ffcc00;
+            color: black;
+        }
+
+        .contact-table tr:hover td a {
+            font-weight: bold;
+            color: black;
+        }
+
+        .contact-table td:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .contact-table td:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffcc00;
+        }
+
+        a:hover {
+            color: black;
+        }
+        /* Footer Styles */
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: auto;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+        <a href="index.html">Home</a>
+        <a href="exam.html">Exam</a>
+        <a href="assignment.html">Assignment</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Fill out the form below to get in touch.</p>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Contact Information Table -->
+        <table class="contact-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Batch</th>
+                    <th>Messenger Group</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Intermediate 1st year</td> <!-- Merged for 2021 and 2022 -->
+                    <td>Morning Batch</td>
+                    <td><a href="#">Join Group</a></td>
+                </tr>
+                <tr>
+                    <td>Afternoon Batch</td>
+                    <td><a href="#">Join Group</a></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">Intermediate 2nd year</td> <!-- Merged for 2023 and 2024 -->
+                    <td>Morning Batch</td>
+                    <td><a href="#">Join Group</a></td>
+                </tr>
+                <tr>
+                    <td>Afternoon Batch</td>
+                    <td><a href="#">Join Group</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- <p>Contact Now</p> -->
+        © 2024 WEB PAGE NAME. All rights reserved.
+    </footer>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

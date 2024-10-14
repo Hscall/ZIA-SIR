@@ -1,0 +1,157 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Flexbox container to make footer stick to bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures body takes at least the full viewport height */
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #000, #ffcc00); /* Black to yellow gradient background */
+            color: white;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: linear-gradient(to right, #000, #ffcc00);
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: inline-block;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #ffcc00;
+            color: black;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Toggle Button (Hamburger icon) */
+        .toggle-btn {
+            display: none;
+            background-color: #000;
+            border: none;
+            color: #ffcc00;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav a {
+                display: none;
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+            nav.active a {
+                display: block;
+                padding: 10px;
+                margin: 5px 0;
+                background-color: #000;
+            }
+        }
+
+        /* Main Content */
+        .content {
+            text-align: center;
+            margin-top: 40px; /* Added space between navbar and content */
+            flex: 1; /* Allows this section to grow and fill the available space */
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        a.button {
+            padding: 15px 30px;
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        a.button:hover {
+            background-color: black;
+            color: #ffcc00;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            /* width: 100%; */
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+        <a href="index.html">Home</a>
+        <a href="#exam">Exam</a>
+        <a href="#assignment">Assignment</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content with added space -->
+    <div class="content">
+        <h1>Welcome to the Home Page</h1>
+        <p>Here you can explore detailed information about the portal.</p>
+        <a href="index.html" class="button">Go Back</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        © 2024 HSC All Board Questions. All rights reserved.
+    </footer>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
