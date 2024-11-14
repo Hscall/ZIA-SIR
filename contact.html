@@ -227,7 +227,7 @@
         <!-- Contact Form -->
         <div class="contact-form">
             <h2>Get in Touch</h2>
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form id="form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="e9da64a8-e57a-4fae-ba2a-4942da78a325">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -246,6 +246,8 @@
 
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
+
+                <input type="hidden" name="redirect" value="https://yourwebsite.com/thanks.html">
 
                 <button type="submit">Send Message</button>
             </form>
@@ -294,6 +296,10 @@
         function toggleMenu() {
             var nav = document.querySelector('nav');
             nav.classList.toggle('active');
+        }
+        window.onload = function() {
+        // Reset the form fields when the page loads
+        document.getElementById("form").reset();
         }
     </script>
 
