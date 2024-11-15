@@ -101,6 +101,20 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
             color: black;
         }
+		        /* (Your existing CSS goes here) */
+
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            display: none; /* Hidden by default */
+        }
+
+        input.invalid {
+            border-color: red;
+        }
 
         .contact-form h2 {
             color: #ffcc00;
@@ -229,11 +243,13 @@
             <h2>Get in Touch</h2>
             <form id="form" action="https://api.web3forms.com/submit" method="POST">
                 <input type="hidden" name="access_key" value="e9da64a8-e57a-4fae-ba2a-4942da78a325">
+				
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-
-                <label for="class">Class:</label>
+				
+				<label for="class">Class:</label>
                 <input type="number" name="class" id="class" placeholder="11 / 12" required>
+                <div id="class-error" class="error-message">You should read in class 11 or 12.</div>
 
                 <label for="college">College Name:</label>
                 <input type="text" name="College" id="college" required>
@@ -292,16 +308,57 @@
     </footer>
 
     <!-- JavaScript for Toggle Menu -->
-    <script>
-        function toggleMenu() {
-            var nav = document.querySelector('nav');
-            nav.classList.toggle('active');
-        }
-        window.onload = function() {
+	
+<script>
+    function toggleMenu() {
+        var nav = document.querySelector('nav');
+        nav.classList.toggle('active');
+    }
+
+    window.onload = function () {
         // Reset the form fields when the page loads
         document.getElementById("form").reset();
-        }
-    </script>
+    };
 
+    // Validate class input field
+    const classInput = document.getElementById("class");
+    const classError = document.getElementById("class-error");
+
+    classInput.addEventListener("blur", function () {
+        const value = classInput.value;
+        if (value !== "11" && value !== "12") {
+            classError.style.display = "block"; // Show error message
+            classInput.classList.add("invalid"); // Highlight invalid input
+            classInput.focus(); // Keep cursor in the input field
+        } else {
+            classError.style.display = "none"; // Hide error message
+            classInput.classList.remove("invalid"); // Remove invalid styling
+        }
+    });
+
+    // Validate phone number input field
+    const phoneInput = document.getElementById("phode");
+    const phoneError = document.createElement("div");
+    phoneError.id = "phone-error";
+    phoneError.className = "error-message";
+    phoneError.innerText = "Your mobile number is incorrect";
+    phoneInput.parentNode.insertBefore(phoneError, phoneInput.nextSibling); // Add error message after input
+    phoneError.style.display = "none"; // Hide error message by default
+
+    phoneInput.addEventListener("blur", function () {
+        const value = phoneInput.value;
+        if (value.length !== 11 || isNaN(value)) {
+            phoneError.style.display = "block"; // Show error message
+            phoneInput.classList.add("invalid"); // Highlight invalid input
+            phoneInput.focus(); // Keep cursor in the input field
+        } else {
+            phoneError.style.display = "none"; // Hide error message
+            phoneInput.classList.remove("invalid"); // Remove invalid styling
+        }
+    });
+</script>
+
+
+	
 </body>
 </html>
